@@ -1,186 +1,1494 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156540354-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sai Bavisetty — Mathematical Biology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  gtag('config', 'UA-156540354-1');
-</script>
+    :root {
+      --ink: #0d1820;
+      --paper: #f7f9fc;
+      --cream: #eef2f8;
+      --blue: #163a6e;
+      --blue-mid: #1e5290;
+      --blue-light: #2f6db5;
+      --muted: #4a5a6e;
+      --gold: #c9a84c;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+    }
 
-<title>Sai</title>
-<!-- for-mobile-apps -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Your Name, your field" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //for-mobile-apps -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<!-- js -->
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<!-- //js -->
-<!-- animation-effect -->
-<link href="css/animate.min.css" rel="stylesheet"> 
-<script src="js/wow.min.js"></script>
-<script>
- new WOW().init();
-</script>
-<!-- //animation-effect -->
-<link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<!-- start-smoth-scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
-</script>
-<!-- start-smoth-scrolling -->
+    html { scroll-behavior: smooth; }
 
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 4rem;
+      background: rgba(247,249,252,0.93);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(30,77,140,0.1);
+    }
+    .nav-name {
+      font-size: 1rem; font-weight: 300; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+
+    /* HERO */
+    #about {
+      min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 72px;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 4rem 5rem 6rem;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--blue-light); margin-bottom: 1.2rem;
+    }
+    .hero-name {
+      font-size: clamp(3rem, 4.5vw, 5rem); font-weight: 300;
+      line-height: 1.05; margin-bottom: 0.5rem;
+    }
+    .hero-name em { font-style: italic; color: var(--blue); }
+    .hero-title {
+      font-size: 1rem; font-weight: 300; color: var(--muted);
+      margin-bottom: 2rem; font-style: italic;
+    }
+    .hero-bio {
+      font-size: 1.2rem; font-weight: 400; color: #2a3a4e; max-width: 500px;
+      margin-bottom: 2.5rem; line-height: 1.9;
+    }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .chip {
+      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.38rem 0.9rem;
+      border: 1px solid rgba(30,77,140,0.22); color: var(--blue-mid);
+      background: rgba(30,77,140,0.05); border-radius: 2px;
+    }
+
+    /* HERO RIGHT */
+    .hero-right {
+      position: relative; overflow: hidden;
+      background: var(--paper);
+    }
+    .hero-right::before {
+      display: none;
+    }
+    .hero-photo {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 82%; height: 94%; object-fit: cover; object-position: center top; z-index: 2;
+    }
+    .hero-stats {
+      position: absolute; top: 2.5rem; right: 2.5rem;
+      display: flex; flex-direction: column; gap: 1.5rem; text-align: right; z-index: 3;
+    }
+    .stat-num { font-size: 2.2rem; font-weight: 300; line-height: 1; color: var(--blue); }
+    .stat-label {
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue-mid);
+    }
+
+    /* SECTIONS */
+    section { padding: 6rem 6rem; }
+    .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3.5rem; }
+    .section-num { font-family: var(--mono); font-size: 0.62rem; color: var(--blue-light); letter-spacing: 0.1em; }
+    .section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; line-height: 1.1; }
+    .section-title em { font-style: italic; color: var(--blue); }
+    .divider { flex: 1; height: 1px; background: rgba(30,77,140,0.12); margin-left: 1rem; }
+
+    /* RESEARCH */
+    #research { background: var(--cream); }
+    .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; margin-bottom: 4rem; }
+    .research-card {
+      background: white; padding: 2.5rem;
+      border-top: 3px solid transparent;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .research-card:hover { border-top-color: var(--blue); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(30,77,140,0.1); }
+    .card-tag { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 1rem; }
+    .card-title { font-size: 1.4rem; font-weight: 400; line-height: 1.3; margin-bottom: 1rem; }
+    .card-desc { font-size: 1.2rem; font-weight: 400; color: #3a4d62; line-height: 1.75; }
+
+    /* PUBS */
+    .pubs-list { display: flex; flex-direction: column; }
+    .pub-item { display: grid; grid-template-columns: 65px 1fr; gap: 2rem; padding: 1.8rem 0; border-bottom: 1px solid rgba(30,77,140,0.08); }
+    .pub-item:first-child { border-top: 1px solid rgba(30,77,140,0.08); }
+    .pub-year { font-family: var(--mono); font-size: 0.63rem; color: var(--blue-light); padding-top: 0.3rem; }
+    .pub-title { font-size: 1rem; font-weight: 600; font-style: italic; margin-bottom: 0.35rem; }
+    .pub-meta { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); margin-bottom: 0.4rem; }
+    .pub-badge { display: inline-block; font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; background: rgba(30,77,140,0.07); color: var(--blue-mid); border-radius: 2px; }
+
+    /* TEACHING */
+    #teaching { background: white; }
+    .teaching-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .teaching-intro { font-size: 1.2rem; font-weight: 400; line-height: 1.9; color: #2a3a4e; }
+    .course-list { display: flex; flex-direction: column; }
+    .course-item { display: flex; justify-content: space-between; align-items: baseline; padding: 1rem 0; border-bottom: 1px solid rgba(30,77,140,0.08); gap: 1rem; }
+    .course-item:first-child { border-top: 1px solid rgba(30,77,140,0.08); }
+    .course-name { font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+    .course-level { font-family: var(--mono); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-mid); }
+
+    /* MENTORING */
+    #mentoring { background: white; }
+    .mentoring-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .mentor-block {
+      border-top: 2px solid rgba(30,77,140,0.2);
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .mentor-label {
+      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 1rem;
+    }
+    .mentor-desc { font-size: 1.2rem; color: #3a4d62; line-height: 1.8; }
+    .mentee-list { margin-top: 1.4rem; display: flex; flex-direction: column; gap: 0; }
+    .mentee-item {
+      font-size: 0.95rem;
+      color: var(--ink);
+      padding: 0.7rem 0 0.7rem 1rem;
+      border-bottom: 1px solid rgba(30,77,140,0.07);
+      border-left: 2px solid rgba(30,77,140,0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      transition: border-left-color 0.2s, background 0.2s;
+    }
+    .mentee-item:first-child { border-top: 1px solid rgba(30,77,140,0.07); }
+    .mentee-item:hover { border-left-color: var(--blue); background: rgba(30,77,140,0.02); }
+    .mentee-name { font-weight: 600; color: var(--ink); }
+    .mentee-destination {
+      font-family: var(--mono); font-size: 0.56rem;
+      letter-spacing: 0.06em; color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* EXPANDABLE PROJECT CARDS */
+    .project-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5px; margin-bottom: 4rem; }
+    .project-card {
+      background: white;
+      border-top: 3px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      overflow: hidden;
+    }
+    .project-card:hover { border-top-color: var(--blue); box-shadow: 0 8px 32px rgba(30,77,140,0.1); }
+    .project-card.open { border-top-color: var(--blue); box-shadow: 0 12px 48px rgba(30,77,140,0.13); }
+    .project-card-header {
+      padding: 2.2rem 2.5rem;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+    }
+    .project-card-header-left { flex: 1; }
+    .project-card-toggle {
+      font-family: var(--mono); font-size: 1rem; color: var(--blue-light);
+      transition: transform 0.3s ease; flex-shrink: 0; margin-top: 0.2rem; user-select: none;
+    }
+    .project-card.open .project-card-toggle { transform: rotate(45deg); }
+    .project-card-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+      opacity: 0;
+    }
+    .project-card.open .project-card-body { max-height: 600px; opacity: 1; }
+    .project-card-inner { padding: 0 2.5rem 2.2rem; border-top: 1px solid rgba(30,77,140,0.07); }
+    .project-card-desc { font-size: 1rem; color: #3a4d62; line-height: 1.9; margin-top: 1.2rem; margin-bottom: 1.4rem; }
+    .project-card-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.4rem; }
+    .project-link {
+      font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.35rem 0.85rem; border: 1px solid rgba(30,77,140,0.22); color: var(--blue-mid);
+      background: rgba(30,77,140,0.04); text-decoration: none; border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .project-link:hover { background: rgba(30,77,140,0.1); border-color: var(--blue); }
+    .project-card-meta { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); letter-spacing: 0.06em; margin-top: 1rem; }
+
+    /* EXPANDABLE UG PROJECT CARDS */
+    .ug-project-list { display: flex; flex-direction: column; gap: 2px; margin-top: 1rem; }
+    .ug-card {
+      background: var(--cream); border-left: 2px solid rgba(30,77,140,0.18);
+      cursor: pointer; overflow: hidden;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .ug-card:hover { border-left-color: var(--blue); background: #e8eef7; }
+    .ug-card.open { border-left-color: var(--blue); background: #e8eef7; }
+    .ug-card-header {
+      padding: 0.9rem 1.2rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 0.8rem;
+    }
+    .ug-card-title { font-size: 1rem; color: var(--ink); font-weight: 400; line-height: 1.4; }
+    .ug-card-toggle { font-family: var(--mono); font-size: 0.8rem; color: var(--blue-light); transition: transform 0.3s; flex-shrink: 0; user-select: none; }
+    .ug-card.open .ug-card-toggle { transform: rotate(45deg); }
+    .ug-card-body { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.25s; opacity: 0; }
+    .ug-card.open .ug-card-body { max-height: 400px; opacity: 1; }
+    .ug-card-inner { padding: 0 1.2rem 1.2rem; }
+    .ug-card-desc { font-size: 1rem; color: #3a4d62; line-height: 1.85; margin-bottom: 0.9rem; }
+    .ug-card-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ug-link {
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.28rem 0.7rem; border: 1px solid rgba(30,77,140,0.22); color: var(--blue-mid);
+      background: white; text-decoration: none; border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .ug-link:hover { background: rgba(30,77,140,0.08); border-color: var(--blue); }
+
+    /* TALKS TABS */
+    .talks-tabs {
+      display: flex; gap: 0; margin-bottom: 0;
+      border-bottom: 1px solid rgba(30,77,140,0.12);
+    }
+    .talks-tab {
+      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em;
+      text-transform: uppercase; background: none; border: none;
+      padding: 0.55rem 1.4rem 0.55rem 0; cursor: pointer;
+      color: var(--muted); position: relative; transition: color 0.2s;
+    }
+    .talks-tab::after {
+      content: ''; position: absolute; bottom: -1px; left: 0;
+      width: 100%; height: 2px; background: var(--blue);
+      transform: scaleX(0); transition: transform 0.2s;
+    }
+    .talks-tab.active { color: var(--blue); }
+    .talks-tab.active::after { transform: scaleX(1); }
+    .talks-tab:hover { color: var(--blue-mid); }
+    .talks-pane { padding-top: 0.2rem; }
+
+    /* TALKS */
+    #talks { background: var(--cream); }
+    .talks-layout { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 5rem; }
+
+    /* CONFERENCES */
+    #conferences { background: white; }
+    .conf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    .conf-card {
+      border: 1.5px solid rgba(30,77,140,0.15);
+      background: var(--cream);
+      transition: border-color 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .conf-card:hover { border-color: var(--blue); box-shadow: 0 12px 40px rgba(30,77,140,0.1); }
+    .conf-card.open { border-color: var(--blue); box-shadow: 0 12px 40px rgba(30,77,140,0.13); }
+    .conf-card-header { padding: 2.5rem 2.5rem 1.5rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+    .conf-card-toggle { font-family: var(--mono); font-size: 1rem; color: var(--blue-light); transition: transform 0.3s ease; flex-shrink: 0; margin-top: 0.2rem; user-select: none; }
+    .conf-card.open .conf-card-toggle { transform: rotate(45deg); }
+    .conf-card-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease; opacity: 0; }
+    .conf-card.open .conf-card-body { max-height: 600px; opacity: 1; }
+    .conf-card-inner { padding: 0 2.5rem 2.2rem; border-top: 1px solid rgba(30,77,140,0.07); }
+    .conf-tag { font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); margin-bottom: 0.8rem; }
+    .conf-title { font-size: 1.5rem; font-weight: 400; line-height: 1.3; margin-bottom: 0.5rem; color: var(--blue); }
+    .conf-venue { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 1.2rem; }
+    .conf-desc { font-size: 1.2rem; color: #3a4d62; line-height: 1.85; margin-bottom: 1.5rem; }
+    .conf-link {
+      display: inline-block;
+      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.45rem 1rem; border: 1px solid rgba(30,77,140,0.3); color: var(--blue-mid);
+      background: white; text-decoration: none; border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .conf-link:hover { background: rgba(30,77,140,0.08); border-color: var(--blue); }
+
+    /* RESOURCES */
+    #resources { background: var(--cream); }
+
+    /* Icon links row */
+    .resource-icons { display: flex; gap: 1.8rem; margin-bottom: 4rem; flex-wrap: wrap; }
+    .resource-icon-link {
+      display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+      text-decoration: none; color: var(--muted);
+      transition: color 0.2s, transform 0.2s;
+    }
+    .resource-icon-link:hover { color: var(--blue); transform: translateY(-3px); }
+    .resource-icon-link svg { width: 28px; height: 28px; fill: currentColor; }
+    .resource-icon-link span {
+      font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Reading list */
+    .reading-section { margin-bottom: 3rem; }
+    .reading-heading {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem; border-bottom: 1px solid rgba(30,77,140,0.15);
+    }
+    .paper-item {
+      border-bottom: 1px solid rgba(30,77,140,0.07);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .paper-item:hover { background: rgba(30,77,140,0.03); }
+    .paper-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 1rem; padding: 0.85rem 0.5rem;
+    }
+    .paper-header-left { flex: 1; }
+    .paper-num {
+      font-family: var(--mono); font-size: 0.58rem; color: var(--blue-light);
+      margin-right: 0.6rem; user-select: none;
+    }
+    .paper-title { font-size: 1rem; font-weight: 600; font-style: italic; color: var(--ink); display: inline; }
+    .paper-author {
+      font-family: var(--mono); font-size: 0.6rem; color: var(--muted);
+      letter-spacing: 0.04em; margin-top: 0.2rem;
+    }
+    .paper-toggle {
+      font-family: var(--mono); font-size: 0.85rem; color: var(--blue-light);
+      transition: transform 0.3s; flex-shrink: 0; user-select: none; padding-top: 0.1rem;
+    }
+    .paper-item.open .paper-toggle { transform: rotate(45deg); }
+    .paper-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.25s;
+      opacity: 0;
+    }
+    .paper-item.open .paper-body { max-height: 400px; opacity: 1; }
+    .paper-body-inner {
+      padding: 0.2rem 0.5rem 1.4rem 1.6rem;
+      border-left: 2px solid rgba(30,77,140,0.2);
+      margin-left: 0.5rem;
+    }
+    .paper-thoughts {
+      font-size: 1rem; color: #3a4d62; line-height: 1.85;
+      margin-bottom: 1.1rem; font-style: italic;
+    }
+    .paper-thoughts-placeholder { color: var(--muted); }
+    .paper-further { margin-top: 0.2rem; }
+    .paper-further-label {
+      font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--blue-light); margin-bottom: 0.5rem;
+    }
+    .paper-further-item {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.45rem 0; border-bottom: 1px solid rgba(30,77,140,0.06);
+      line-height: 1.5;
+    }
+    .paper-further-item:last-child { border-bottom: none; }
+    .paper-further-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--blue-light); flex-shrink: 0; margin-top: 0.5rem;
+    }
+    .paper-further-text { display: flex; flex-direction: column; gap: 0.1rem; }
+    .paper-further-title { font-size: 0.92rem; font-style: italic; color: var(--ink); }
+    .paper-further-author {
+      font-family: var(--mono); font-size: 0.57rem;
+      color: var(--muted); letter-spacing: 0.03em;
+    }
+
+    /* CV */
+    #cv { background: white; }
+    .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .cv-label { font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; margin-top: 2.5rem; }
+    .cv-label:first-child { margin-top: 0; }
+    .cv-entry { padding: 0.9rem 0; border-bottom: 1px solid rgba(30,77,140,0.08); }
+    .cv-entry:first-of-type { border-top: 1px solid rgba(30,77,140,0.08); }
+    .cv-entry-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .cv-entry-sub { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.04em; }
+    .award-item { padding: 0.65rem 0 0.65rem 1rem; border-left: 2px solid var(--blue-light); margin-bottom: 0.6rem; font-size: 0.88rem; font-weight: 400; color: #2a3a4e; }
+
+    /* CONTACT */
+    #contact { background: var(--ink); color: white; }
+    #contact .section-title { color: white; }
+    #contact .divider { background: rgba(255,255,255,0.12); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-desc { font-size: 1.05rem; color: rgba(255,255,255,0.72); line-height: 1.9; margin-bottom: 2rem; }
+    .contact-email { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; color: var(--blue-light); text-decoration: none; border-bottom: 1px solid rgba(74,144,217,0.3); padding-bottom: 2px; transition: color 0.2s; }
+    .contact-email:hover { color: white; }
+    .social-link { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 1.5rem; border: 1px solid rgba(255,255,255,0.1); color: white; text-decoration: none; transition: border-color 0.2s, background 0.2s; margin-bottom: 0.7rem; }
+    .social-link:hover { border-color: rgba(74,144,217,0.5); background: rgba(74,144,217,0.08); }
+    .social-link span:first-child { font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .social-link span:last-child { color: var(--blue-light); }
+
+    /* FOOTER */
+    footer { background: var(--cream); padding: 2.2rem 6rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(30,77,140,0.08); }
+    .footer-name { font-size: 0.88rem; font-weight: 300; letter-spacing: 0.06em; color: var(--muted); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--blue); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-left > * { animation: fadeUp 0.65s ease both; }
+    .hero-left > *:nth-child(1) { animation-delay: 0.05s; }
+    .hero-left > *:nth-child(2) { animation-delay: 0.15s; }
+    .hero-left > *:nth-child(3) { animation-delay: 0.25s; }
+    .hero-left > *:nth-child(4) { animation-delay: 0.35s; }
+    .hero-left > *:nth-child(5) { animation-delay: 0.45s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { gap: 1.2rem; }
+      #about { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { height: 60vw; }
+      .hero-left { padding: 5rem 2rem 3rem; }
+      section { padding: 4rem 2rem; }
+      .teaching-layout, .cv-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .mentoring-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1.2rem; text-align: center; }
+    }
+  </style>
 </head>
-	
 <body>
-<!-- header -->
-	<div class="header">
-		<div class="container">
-			<nav class="navbar navbar-default">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				  </button>
-					<div class="logo">
-						
-					</div>
-				</div>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-					<nav class="menu menu--francisco">
-						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item menu__item--current"><a href="index.html" class="menu__link"><span class="menu__helper">Home</span></a></li>
-							<li class="menu__item"><a href="research.html" class="menu__link"><span class="menu__helper">Research</span></a></li>
-							<li class="menu__item"><a href="talks.html" class="menu__link"><span class="menu__helper">Notes</span></a></li>
-							<li class="menu__item"><a href="teaching.html" class="menu__link"><span class="menu__helper">Teaching</span></a></li>
-							<li class="menu__item"><a href="images/CV.pdf" class="menu__link" target="_blank"><span class="menu__helper">CV</span></a></li>
-							
-							<li class="menu__item"><a href="#CONTACT" class="menu__link"><span class="menu__helper">Contact</span></a></li>
-						</ul>
-					</nav>
-				</div>
-				<!-- /.navbar-collapse -->
-			</nav>
-		</div>
-	</div>
-<!-- //header -->
-<!-- banner -->
-	<div class="banner1">
-		<div class="container">
-			<h2 class="animated wow slideInLeft"><a href="index.html">Hi, I'm Sai</a></h2>
-		</div>
-	</div>
-<!-- //banner -->
-<!-- about -->
-<div class="about">
-    <div class="container">
-        <div class="about-grids">
-            <div class="col-md-6 about-grids-left">
-                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel panel-default">
-                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                            <div class="panel-body panel_text" style="color:Black;">
-                                Hi,
+  <nav>
+    <a class="nav-name" href="#about">Sai Bavisetty</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#conferences">Conferences</a></li>
+      <li><a href="#mentoring">Mentoring</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#cv">CV</a></li>
+    </ul>
+  </nav>
 
-								<p>I am Venkata Sai Narayana Bavisetty (Sai). Currently, I am a research staff at the Laboratory for Systems Medicine at <a href="https://ufhealth.org/">UF Health</a>. My current focus involves developing mathematical and computational tools to explore the dynamics of biological systems, particularly gene regulatory networks.</p>
-								<p></p>
-								<p>Previously, I earned my Ph.D. in Algebraic Topology under the guidance of <a href="https://vesna.web.illinois.edu/">Prof. Vesna Stojanoska</a>. If you're interested in my thesis, you can <a href="thesis.pdf">check it out here</a>.</p>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Postdoctoral Associate · UCLA — Integrative Biology &amp; Physiology</p>
+      <h1 class="hero-name">Sai <em>Bavisetty</em></h1>
+      <p class="hero-title">Mathematical Biology · Network Science · Manifold Learning  </p>
+      <p class="hero-bio">
+        I am a mathematician and data scientist working at the intersection of topology, network science, 
+        and systems biology. As a postdoc at UCLA's 
+        <a href="https://deedslab.ibp.ucla.edu/" target="_blank" rel="noopener noreferrer">Deeds Lab</a> 
+        in the Department of Integrative Biology and Physiology, I use topology and geometry to address 
+        fundamental questions such as how phenotypes maintain stability, and how disease networks evolve and function. 
+        Previously, I was a postdoctoral researcher at the 
+        <a href="https://systemsmedicine.pulmonary.medicine.ufl.edu/" target="_blank" rel="noopener noreferrer">Laboratory for Systems Medicine</a> 
+        at the University of Florida (2024–25). I completed my PhD in Mathematics at UIUC under 
+        <a href="https://vesna.web.illinois.edu/" target="_blank" rel="noopener noreferrer">Vesna Stojanoska</a>.
+      </p>
 
-								
-				                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 about-grids-right animated wow slideInRight" data-wow-delay="0s">
-                <img src="images/sai.jpg" alt=" " class="img-responsive" />
-            </div>
-            <div class="clearfix"> </div>
-        </div>
+      <div style="margin-top:2rem;margin-bottom: 1rem; border:1.5px solid rgba(201,168,76,0.4); background:rgba(201,168,76,0.06); padding:1.2rem 1.5rem; position:relative; max-width:500px;">
+        <div style="position:absolute; top:-1px; left:0; right:0; height:3px; background:var(--gold);"></div>
+        <div style="font-family:var(--mono); font-size:0.58rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:0.45rem;">Upcoming Talk &nbsp;·&nbsp; April 23, 2026</div>
+        <div style="font-size:1.15rem; font-weight:400; color:var(--blue); line-height:1.3;">Balancing Stability and Complexity in Boolean Models of Biological Systems</div>
+        <div style="font-family:var(--mono); font-size:0.6rem; color:var(--muted); letter-spacing:0.06em; margin-top:0.4rem;">Math Biology Seminar · UC San Diego</div>
+      </div>
+
+      <div class="hero-chips">
+        <span class="chip">Mathematical Biology</span>
+        <span class="chip">Topology</span>
+        <span class="chip">Boolean Networks</span>
+        <span class="chip">Manifold Learning</span>
+        <span class="chip">Gene Regulatory Networks</span>
+        <span class="chip">Neuroscience</span>
+        <span class="chip">AI / ML</span>
+      </div>
+
+      
     </div>
-</div>
-<!-- //about -->
-<!-- footer -->
-<div class="footer"><a name="CONTACT"></a>
-		<div class="container">
-			<div class="footer-grids">
-				<div class="col-md-4 footer-grid animated wow slideInLeft" data-wow-delay="0s">
-                    <h3>Contact</h3>
-                    <p>Email: vb8@illinois.edu</p>
-                    <p>Office: Altgeld Hall 108</p>
-					
-				</div>
-                <div class="col-md-4 footer-grid animated wow slideInLeft" data-wow-delay=".01s">
-                    <br><br><br>
-                    
+
+    <div class="hero-right">
+      <img class="hero-photo" src="headshot.jpg" alt="Sai Bavisetty" />
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Re<em>search</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="project-cards">
+
+      <div class="project-card" onclick="toggleCard(this)">
+        <div class="project-card-header">
+          <div class="project-card-header-left">
+            <!-- <div class="card-tag">Primary Focus</div> -->
+            <div class="card-title">Boolean Network Dynamics</div>
+            <p class="card-desc">Modeling gene regulatory networks as discrete dynamical systems to understand phenotypic robustness and network stability.</p>
+          </div>
+          <span class="project-card-toggle">+</span>
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-inner">
+            <p class="project-card-desc">
+              This project examines the stability of attractors in Boolean network models of gene regulation. 
+              We investigate how canalization and network architecture shape the robustness of phenotypes under perturbation, and work toward deriving theoretical bounds that characterize the limits of attractor stability.
+              
+            </p>
+            <div class="project-card-links">
+              <a href="https://github.com/ckadelka/BoolForge" class="project-link">GitHub ↗</a>
+              <a href="https://journals.aps.org/pre/abstract/10.1103/1862-2fj1" class="project-link">Paper ↗</a>
+            </div>
+            <div class="project-card-meta">Collaborators: Matthew Wheeler &nbsp;·&nbsp; <a href="https://faculty.sites.iastate.edu/ckadelka/" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">Claus Kadelka</a> (Iowa State University) &nbsp;·&nbsp; <a href="https://systemsmedicine.pulmonary.medicine.ufl.edu/profile/laubenbacher-reinhard/" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">Reinhard Laubenbacher</a> (University of Florida)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="toggleCard(this)">
+        <div class="project-card-header">
+          <div class="project-card-header-left">
+            <!-- <div class="card-tag">Primary Focus</div> -->
+            <div class="card-title">Manifold Learning &amp; TDA</div>
+            <p class="card-desc">Applying topological data analysis and manifold learning to uncover low-dimensional geometric structure in high-dimensional biological datasets.</p>
+          </div>
+          <span class="project-card-toggle">+</span>
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-inner">
+            <p class="project-card-desc">
+              This project applies topological data analysis and manifold learning to fit manifold to high dimensional datasets. 
+              We are particularly interested in characterizing the topology of gene expression and neurological data to uncover hidden patterns and relationships that conventional analysis methods may overlook.
+              <!-- <a href="#" class="project-link">GitHub ↗</a>
+              <a href="#" class="project-link">Paper ↗</a>
+            </div> -->
+            <div class="project-card-meta">Collaborators: <a href="https://neurology.ufl.edu/profile/kalamangalam-giridhar/" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">Giri Kalamangalam</a> (University of Florida) &nbsp;·&nbsp; <a href="https://deedslab.ibp.ucla.edu/" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">Eric Deeds</a> (UCLA)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="toggleCard(this)">
+        <div class="project-card-header">
+          <div class="project-card-header-left">
+            <!-- <div class="card-tag">Application Domain</div> -->
+            <div class="card-title">Network Science &amp; Neuroscience</div>
+            <p class="card-desc">Using network-theoretic and topological tools to study modularity, resilience, and reorganization in disease networks, including epilepsy.</p>
+          </div>
+          <span class="project-card-toggle">+</span>
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-inner">
+            <p class="project-card-desc">
+              This project investigates how disease networks evolve over time, with a particular focus on identifying structural configurations that are more susceptible to seizure states. 
+              We aim to determine which network modifications can most effectively eliminate seizures while preserving essential brain function. 
+              Our current work centers on patients undergoing pre-surgical evaluation for epilepsy surgery, where we analyze the topological and network properties of their intracranial EEG data.
+            </p>
+            <!-- <div class="project-card-links">
+              <a href="#" class="project-link">GitHub ↗</a>
+              <a href="#" class="project-link">Preprint ↗</a>
+            </div> -->
+            <div class="project-card-meta">Collaborators: <a href="https://neurology.ufl.edu/profile/kalamangalam-giridhar/" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">Giri Kalamangalam</a> (University of Florida)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="toggleCard(this)">
+        <div class="project-card-header">
+          <div class="project-card-header-left">
+            <div class="card-title">Modularity in Biological Systems</div>
+            <p class="card-desc">An interdisciplinary working group exploring the definition, detection, and functional consequences of modularity across biological networks.</p>
+          </div>
+          <span class="project-card-toggle">+</span>
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-inner">
+            <p class="project-card-desc">
+              The hypothesis that biological systems are "modular" is widely accepted in systems biology, yet no consensus exists on the right definition of a module — whether it should be a structural or dynamic property, or both — nor on the concrete benefits modularity confers on an organism. 
+              This interdisciplinary working group approaches the subject from both biological and computational directions. 
+            </p>
+            <div class="project-card-links">
+              <a href="https://laboratoryforsystemsmedicine.github.io/Modularity-Group" target="_blank" class="project-link">Modularity Group ↗</a>
+            </div>
+            <div class="project-card-meta">Working group &nbsp;·&nbsp; Laboratory for Systems Medicine, University of Florida</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-header" style="margin-bottom:1.5rem; margin-top:1px;">
+      <span class="section-num" style="color:var(--blue); font-size:0.7rem;">Publications</span>
+      <div class="divider"></div>
+    </div>
+
+    <div class="pubs-list">
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div>
+          <div class="pub-title">
+            <a href="https://journals.aps.org/pre/abstract/10.1103/1862-2fj1" target="_blank" rel="noopener noreferrer">
+              Upper bound for the stability of Boolean networks
+            </a>
+          </div>
+          <div class="pub-meta">V. S. N. Bavisetty, M. Wheeler, R. Laubenbacher, C. Kadelka &nbsp;·&nbsp; Physical Review E 112, 044310</div>
+          <span class="pub-badge">Highlighted in Physical Review</span>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div>
+          <div class="pub-title">
+            <a href="https://www.biorxiv.org/content/10.1101/2025.11.06.687062v1.abstract" target="_blank" rel="noopener noreferrer">
+              Attractors are less stable than their basins: Canalization creates a coherence gap in gene regulatory networks
+            </a>
+          </div>
+          <div class="pub-meta">V. S. N. Bavisetty, M. Wheeler, C. Kadelka &nbsp;·&nbsp; In review at PRX Life</div>
+          <span class="pub-badge">In Review</span>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div>
+          <div class="pub-title">
+            <a href="thesis.pdf" target="_blank" rel="noopener noreferrer">
+              Descent and the Picard group of Q(2)
+            </a>
+          </div>
+          <div class="pub-meta">V. S. N. Bavisetty &nbsp;·&nbsp; PhD Thesis, University of Illinois Urbana-Champaign</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Teach<em>ing</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="teaching-layout">
+      <div>
+        <p class="teaching-intro">
+          My teaching philosophy is that active student engagement is indispensable for learning.
+          I capture students' attention by telling mathematical stories, intentionally applying active learning techniques,
+          encouraging self-directed learning, and striving to foster an inclusive environment where everyone can succeed.
+          A version of my full <a href="teaching_statement.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">teaching statement</a> is available here.
+        </p>
+        <p class="teaching-intro" style="margin-top:1.5rem;">
+          At UCLA, as part of the <a href="https://qcb.ucla.edu/collaboratory/" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">QCBio Collaboratory</a>, I teach short courses and workshops on programming, data science, and computational biology topics. 
+          These workshops are designed to be accessible to students with no prior coding experience, while still providing depth and practical skills for those with some background.
+                 
+          In the Winter 2026 I taught a three-day workshop titled <em>Introduction to Python</em>.
+          The workshop covers Python fundamentals, data structures and control flow, and concludes with
+          hands-on exploratory analysis of single-cell RNA sequencing data. 
+          <!-- Workshop materials: -->
+        <!-- </p>
+        <ul style="margin-top:0.8rem; margin-bottom:1.2rem; padding-left:1.2rem; font-size:0.97rem; line-height:2.2; color:#2a3a4e;">
+          <li><a href="Intro2PythonDay1_studentversion.ipynb" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">Day 1 — Foundations: variables, data types &amp; control flow</a></li>
+          <li><a href="Intro2PythonDay2_studentversion.ipynb" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">Day 2 — Functions, data structures &amp; file I/O</a></li>
+          <li><a href="Intro2PythonDay3_studentversion.ipynb" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">Day 3 — scRNA-seq data analysis &amp; visualization</a></li>
+          <li><a href="Intro2PythonDay3_assignment.ipynb" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">Day 3 — Assignment</a></li>
+        </ul>
+        <p class="teaching-intro" style="margin-top:1.5rem;">
+          As a graduate teaching assistant at UIUC, I taught Calculus 1, Calculus 2, and Calculus 3,
+          and have been ranked as excellent by students for seven semesters. I was also a
+          <a href="https://merit.illinois.edu/about-merit/" target="_blank" rel="noopener noreferrer" style="color:var(--blue-light); text-decoration:underline;">Merit Program</a> TA,
+          supporting students from underrepresented groups in mathematics.
+        </p> -->
+      </div>
+
+      <!-- Right column: Upcoming + Previous -->
+      <div>
+        <h3 style="font-family:var(--mono); font-size:0.65rem; font-weight:600; color:var(--blue); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1.2rem;">Upcoming</h3>
+        <div style="border: 1.5px solid rgba(30,77,140,0.18); padding: 2rem; background: var(--cream); position: relative; margin-bottom: 2.5rem;">
+          <div style="position:absolute; top: -1px; left: 0; right: 0; height: 3px; background: var(--gold);"></div>
+          <div style="font-family:var(--mono); font-size:0.58rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:0.7rem;">Upcoming Workshop -  April 2026</div>
+          <div style="font-size:1.35rem; font-weight:400; line-height:1.3; color:var(--blue); margin-bottom:0.4rem;">Introduction to Image Processing</div>
+          <div style="font-family:var(--mono); font-size:0.6rem; color:var(--muted); letter-spacing:0.06em; margin-bottom:1.2rem;">QCBio Collaboratory · UCLA</div>
+          <p style="font-size:1rem; color:#3a4d62; line-height:1.85; margin-bottom:1.5rem;">
+            This workshop is intended for researchers with some programming experience who want to learn how to apply image processing techniques to biological data.
+            We will conver both classical imaging processing techniques and modern deep learning-based methods, with a focus on practical applications in microscopy and biomedical imaging.
+          </p>
+          <a href="https://qcb.ucla.edu/collaboratory/" target="_blank" rel="noopener noreferrer" style="font-family:var(--mono); font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.45rem 1rem; border:1px solid rgba(30,77,140,0.3); color:var(--blue-mid); background:white; text-decoration:none; border-radius:2px; transition:background 0.2s;">
+            QCBio Collaboratory ↗
+          </a>
+        </div>
+
+        <h3 style="font-family:var(--mono); font-size:0.65rem; font-weight:600; color:var(--blue); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.8rem;">Course Materials</h3>
+        <div class="ug-project-list">
+
+          <div class="ug-card" onclick="toggleCard(this)">
+            <div class="ug-card-header">
+              <span class="ug-card-title">Introduction to Python</span>
+              <span class="ug-card-toggle">+</span>
+            </div>
+            <div class="ug-card-body">
+              <div class="ug-card-inner">
+                <p class="ug-card-desc">
+                  QCBio Collaboratory, UCLA · Winter 2026. A three-day workshop covering Python fundamentals, data structures and control flow, concluding with hands-on exploratory analysis of single-cell RNA sequencing data.
+                </p>
+                <div class="ug-card-links">
+                  <a href="Intro2PythonDay1_studentversion.ipynb" target="_blank" rel="noopener noreferrer" class="ug-link">Day 1 ↗</a>
+                  <a href="Intro2PythonDay2_studentversion.ipynb" target="_blank" rel="noopener noreferrer" class="ug-link">Day 2 ↗</a>
+                  <a href="Intro2PythonDay3_studentversion.ipynb" target="_blank" rel="noopener noreferrer" class="ug-link">Day 3 ↗</a>
+                  <a href="Intro2PythonDay3_assignment.ipynb" target="_blank" rel="noopener noreferrer" class="ug-link">Assignment ↗</a>
                 </div>
-                <div class="clearfix"> </div>
-			</div>
-			<div class="footer-grids1">
-				<div class="footer-grids1-left animated wow slideInLeft">
-                    <ul>
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="research.html">Research</a></li>
-						<li><a href="teaching.html">Teaching</a></li>
-						<li><a href="images/CV.pdf">CV</a></li>
-						
-						<li><a href="#CONTACT">Contact</a></li>
-					</ul>
-				</div>
-				<div class="footer-grids1-right">
-					<p class="animated wow slideInRight" data-wow-delay="0s">Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-<!-- //footer -->
-<!-- for bootstrap working -->
-	<script src="js/bootstrap.js"></script>
-<!-- //for bootstrap working -->
-<!-- here stars scrolling icon -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-								
-			$().UItoTop({ easingType: 'easeOutQuart' });
-								
-			});
-	</script>
-<!-- //here ends scrolling icon -->
+              </div>
+            </div>
+          </div>
+
+          <div class="ug-card" onclick="toggleCard(this)">
+            <div class="ug-card-header">
+              <span class="ug-card-title">Topological Invariants — SIM Camp</span>
+              <span class="ug-card-toggle">+</span>
+            </div>
+            <div class="ug-card-body">
+              <div class="ug-card-inner">
+                <p class="ug-card-desc">
+                  Summer in Illinois Math Camp (SIM Camp), UIUC · Summer 2022. A week-long course designed and taught for high school students interested in pure mathematics, introducing topological invariants and their applications.
+                </p>
+                <div class="ug-card-links">
+                  <a href="Sim_camp_notes.pdf" target="_blank" rel="noopener noreferrer" class="ug-link">Course Notes ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TALKS & SEMINARS -->
+  <section id="talks">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Talks &amp; <em>Seminars</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="talks-layout">
+      <div>
+        <h3 style="font-family:var(--mono); font-size:0.85rem; font-weight:600; color:var(--blue); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.5rem;">Invited Talks &amp; Seminars</h3>
+
+        <!-- Tab toggles -->
+        <div class="talks-tabs" id="talksTabs">
+          <button class="talks-tab active" onclick="switchTalksTab('recent')">Recent</button>
+          <button class="talks-tab" onclick="switchTalksTab('past')">Past</button>
+        </div>
+
+        <!-- Recent talks (2024–present) -->
+        <div id="talks-recent" class="talks-pane course-list">
+          <div class="course-item">
+            <span class="course-name">Balancing Stability and Complexity in Boolean Models of Biological Systems</span>
+            <span class="course-level">Math biology seminar, UCSD · Apr 2026</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Network reorganization during ASM cycling</span>
+            <span class="course-level">EBD Data Blitz, UCLA · Feb 2026</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Balancing Stability and Complexity in Boolean Models of Biological Systems</span>
+            <span class="course-level">Cal Poly Colloquium · Oct 2025</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Balancing Stability and Complexity in Boolean Models of Biological Systems</span>
+            <span class="course-level">Microscopy &amp; Modeling Seminar, UCLA · Oct 2025</span>
+          </div>
+          
+        </div>
+
+        <!-- Past talks (pre-2024) -->
+        <div id="talks-past" class="talks-pane course-list" style="display:none;">
+          <div class="course-item">
+            <span class="course-name">Upper bound for robustness of a Boolean Network</span>
+            <span class="course-level">Dept Seminar, University of Florida · April 2025</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Boolean Networks in Biology</span>
+            <span class="course-level">UF Modularity Group · Jan 2025</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Introduction to Boolean Networks</span>
+            <span class="course-level">UF Robotics Lab · Feb 2025</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Introduction to Q-Analysis</span>
+            <span class="course-level">UF · Dec 2024</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Picard group of Q(2)</span>
+            <span class="course-level">Hausdorff Research Institute for Mathematics, Bonn · Fall 2022</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Picard groups in homotopy theory</span>
+            <span class="course-level">UIUC · Sep 2022</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Picard groups in homotopy theory</span>
+            <span class="course-level">UIUC · Oct 2020</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Introduction to Picard groups</span>
+            <span class="course-level">UIUC · Nov 2019</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">The crystalline period map</span>
+            <span class="course-level">UIUC · Apr 2019</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">An introduction to Ratner's theorem</span>
+            <span class="course-level">UIUC · Oct 2018</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Ergodic theory and Mostow rigidity</span>
+            <span class="course-level">UIUC · Sep 2018</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">The tale of an exotic sphere</span>
+            <span class="course-level">UIUC · Apr 2018</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">H-principle for symplectic structures</span>
+            <span class="course-level">UIUC · Oct 2017</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Cohomology theories and formal group laws</span>
+            <span class="course-level">IITB · Apr 2017</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Steenrod squares: construction and properties</span>
+            <span class="course-level">IITB · Feb 2017</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">De Rham's theorem using sheaf cohomology</span>
+            <span class="course-level">IITB · Sep 2016</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Lefschetz fixed point theorem</span>
+            <span class="course-level">IITB · Mar 2016</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">Whitney's approximation theorem</span>
+            <span class="course-level">IITB · Oct 2015</span>
+          </div>
+          <div class="course-item">
+            <span class="course-name">The Schwarz-Christoffel formula</span>
+            <span class="course-level">IITB · Mar 2015</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:var(--mono); font-size:0.85rem; font-weight:600; color:var(--blue); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.5rem;">Expository Writing</h3>
+        <div class="course-list">
+          <div class="course-item" style="display:flex; flex-direction:column; align-items:flex-start; gap:0.2rem;">
+            <span class="course-name"><a href="Vesna_talk_viva_talbot.pdf" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">Invertible Objects in Homotopy Theory</a></span>
+            <span class="course-level">Notes from Vesna Stojanoska's talk at Viva Talbot, with Saad Slaoui</span>
+          </div>
+          <div class="course-item" style="display:flex; flex-direction:column; align-items:flex-start; gap:0.2rem;">
+            <span class="course-name"><a href="Groups_of_Homotopy_Spheres.pdf" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">Milnor's Paper on Exotic Spheres: A Survey</a></span>
+            <span class="course-level">A proof that exotic spheres in dimension 4k (k &gt; 1) are finite</span>
+          </div>
+          <div class="course-item" style="display:flex; flex-direction:column; align-items:flex-start; gap:0.2rem;">
+            <span class="course-name"><a href="Applications_of_h_principle_to_Symplectic_and_Contact_geometry.pdf" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">Applications of h-Principle in Symplectic and Contact Geometry</a></span>
+            <span class="course-level">Notes from a workshop at ISI Kolkata</span>
+          </div>
+          <div class="course-item" style="display:flex; flex-direction:column; align-items:flex-start; gap:0.2rem;">
+            <span class="course-name"><a href="Complexity_project.pdf" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">Non-Uniform ACC Bounds: A Survey</a></span>
+            <span class="course-level">A synopsis of Williams' seminal paper on nonuniform ACC circuit lower bounds</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFERENCES -->
+  <section id="conferences">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Con<em>ferences</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="conf-grid">
+
+      <div class="conf-card" onclick="toggleCard(this)">
+        <div class="conf-card-header">
+          <div>
+            <div class="conf-tag">Minisymposium Organizer</div>
+            <div class="conf-title">Bridging Structure and Dynamics in Biological Networks</div>
+            <div class="conf-venue">SMB · 2026</div>
+          </div>
+          <span class="conf-card-toggle">+</span>
+        </div>
+        <div class="conf-card-body">
+          <div class="conf-card-inner">
+            <p class="conf-desc">
+              Understanding how the structure of a network constrains and drives its dynamics is a central challenge in complex biological systems. While network topology is known to influence phenomena such as multistability, robustness, synchronization, and spreading behavior, the precise mechanisms linking structure to dynamics remain only partially understood. Many real world networks display hallmark properties of complex systems such as feedback loops, modularity, and nonlinear interactions that make it difficult to predict dynamical outcomes from connectivity alone.
+
+              This minisymposium showcases recent advances aimed at closing this gap. The talks highlight new mathematical and computational approaches that reveal how patterns of interaction shape collective behavior in biological, social, and engineered networks. By integrating theoretical insights with application driven examples, the session seeks to illuminate unifying principles that govern the structure–dynamics relationship and to inspire future work in this rapidly developing area.
+            </p>
+            <a href="https://ecmtb2026.org/" class="conf-link" onclick="event.stopPropagation()">Annual SMB meeting ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="conf-card" onclick="toggleCard(this)">
+        <div class="conf-card-header">
+          <div>
+            <div class="conf-title">Modularity in Biological Systems Workshop</div>
+            <div class="conf-venue">National Institute for Theory and Mathematics in Biology (NITMB)</div>
+          </div>
+          <span class="conf-card-toggle">+</span>
+        </div>
+        <div class="conf-card-body">
+          <div class="conf-card-inner">
+            <p class="conf-desc">
+              The hypothesis that biological systems exhibit a modular structure is widely accepted. 
+              Beyond being a “fundamental law of biology,” it has the potential for important applications, for instance in biomedicine and synthetic biology. 
+              It could also serve as an organizational principle for the analysis of high-dimensional complex -omics datasets. 
+              However, there is currently no widely accepted definition of what comprises a biological “module”. 
+              There is also a lack of foundational research on modularity at both the theoretical and applied level. 
+              To address this problem, the proposed workshop will bring together an interdisciplinary group of researchers from biology, modeling, mathematics, and fields outside of biology that currently use the modularity concept, such as engineering and computer science.  
+            </p>
+            <a href="https://www.nitmb.org/modularity-of-biological-systems" class="conf-link" onclick="event.stopPropagation()">Workshop Website ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MENTORING -->
+  <section id="mentoring">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Mentor<em>ing</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <p style="font-size:1.2rem; color:#2a3a4e; line-height:1.85; margin-bottom:2.5rem;">
+      I welcome inquiries from students interested in mathematical biology, topology, or network science. Backgrounds in mathematics, physics, or CS are all suitable entry points — feel free to reach out with a brief description of your interests.
+    </p>
+
+    <div class="mentoring-grid" style="grid-template-columns: repeat(2, 1fr);">
+
+      <!-- Column 1: Undergraduate Projects -->
+      <div class="mentor-block">
+        <div class="mentor-label">Undergraduate Projects</div>
+        <p class="mentor-desc">I have mentored undergraduate/high school research projects through Illinois Geometry Lab and Orlando Math Circle, guiding students through original mathematical research.</p>
+
+        <div class="ug-project-list">
+
+          <div class="ug-card" onclick="toggleCard(this)">
+            <div class="ug-card-header">
+              <span class="ug-card-title">Impact of network structure on phenotypes of Gene Regulatory Networks</span>
+              <span class="ug-card-toggle">+</span>
+            </div>
+            <div class="ug-card-body">
+              <div class="ug-card-inner">
+                <p class="ug-card-desc">
+                  Orlando Math Circle · 2024–26. In this project, we look at Affine Boolean Networks, a class of Boolean networks that can be represented as affine linear maps over the field F_2.
+                  We investigate how the topology of the networks informs the dynamics of the system.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ug-card" onclick="toggleCard(this)">
+            <div class="ug-card-header">
+              <span class="ug-card-title">Impact of Russia-Ukraine war on critical infrastructure</span>
+              <span class="ug-card-toggle">+</span>
+            </div>
+            <div class="ug-card-body">
+              <div class="ug-card-inner">
+                <p class="ug-card-desc">
+                  Illinois Geometry Lab, UIUC · Summer 2023. This project investigates how the Russian Invasion of Ukraine is manifested in Open Street Map. The project centers around data and visualization of changes to Open Street Map in various engagements.
+                </p>
+                <div class="ug-card-links">
+                  <a href="https://gitlab.engr.illinois.edu/r-sowers/ukraine-data/-/tree/main" class="ug-link">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ug-card" onclick="toggleCard(this)">
+            <div class="ug-card-header">
+              <span class="ug-card-title">Modular Forms and homotopy of Q(2)</span>
+              <span class="ug-card-toggle">+</span>
+            </div>
+            <div class="ug-card-body">
+              <div class="ug-card-inner">
+                <p class="ug-card-desc">
+                  Illinois Geometry Lab, UIUC · 2021–22. The project investigates the relationship between modular forms and the homotopy groups of the spectrum Q(2) at the prime 3.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Column 2: Mentored Students (all) -->
+      <div class="mentor-block">
+        <div class="mentor-label">Mentored Students</div>
+        <p class="mentor-desc">Students I have mentored who have gone on to strong programs in mathematics and computational biology.</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 1.5rem; margin-top:1.2rem;">
+          <div class="mentee-list">
+            <div class="mentee-item">
+              <span class="mentee-name">Matthew Jones</span>
+              <span class="mentee-destination">Undergraduate · MIT</span>
+            </div>
+            <div class="mentee-item">
+              <span class="mentee-name">Julian Vignes</span>
+              <span class="mentee-destination">Undergraduate · University of Pennsylvania</span>
+            </div>
+            <div class="mentee-item">
+              <span class="mentee-name">Garrett Credi</span>
+              <span class="mentee-destination">Graduate student · University of Minnesota</span>
+            </div>
+            <div class="mentee-item">
+              <span class="mentee-name">Dimitrios Tambakos</span>
+              <span class="mentee-destination">Graduate student · Purdue University</span>
+            </div>
+          </div>
+          <div class="mentee-list">
+            <div class="mentee-item">
+              <span class="mentee-name">Casey Appleton</span>
+              <span class="mentee-destination">Graduate student · UC Berkeley</span>
+            </div>
+            <div class="mentee-item">
+              <span class="mentee-name">Rishi Narayanan</span>
+              <span class="mentee-destination">Graduate student · University of Albany</span>
+            </div>
+            <div class="mentee-item">
+              <span class="mentee-name">Elias Sheumaker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Re<em>sources</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Icon links -->
+    <div class="resource-icons">
+      <a href="https://github.com/Sai271828" target="_blank" class="resource-icon-link" title="GitHub">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://www.linkedin.com/in/sai-bavisetty-phd-62814476/" target="_blank" class="resource-icon-link" title="LinkedIn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://scholar.google.com/citations?user=4YsG_vYAAAAJ&hl=en" target="_blank" class="resource-icon-link" title="Google Scholar">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+        <span>Scholar</span>
+      </a>
+      <a href="https://orcid.org/0009-0008-4148-6365" target="_blank" class="resource-icon-link" title="ORCID">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.938-2.484 3.938-3.722 0-2.016-1.284-3.722-3.994-3.722h-2.241z"/></svg>
+        <span>ORCID</span>
+      </a>
+      <a href="https://pypi.org/project/iex-cppparser/" target="_blank" class="resource-icon-link" title="PyPI">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.959 3.403 5.959h2.031v-2.867s-.109-3.402 3.35-3.402h5.766s3.24.052 3.24-3.131V3.19S18.28 0 11.914 0zm-3.21 1.839a1.047 1.047 0 1 1 0 2.094 1.047 1.047 0 0 1 0-2.094z"/><path d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752h-5.814v-.826h8.121S24 18.211 24 12.031c0-6.18-3.403-5.959-3.403-5.959h-2.031v2.867s.109 3.402-3.35 3.402H9.45s-3.24-.052-3.24 3.131v5.338S5.72 24 12.086 24zm3.21-1.839a1.047 1.047 0 1 1 0-2.094 1.047 1.047 0 0 1 0 2.094z"/></svg>
+        <span>PyPI</span>
+      </a>
+    </div>
+
+    <!-- Reading list -->
+    <div class="reading-section">
+      <div class="reading-heading">Complexity Theory</div>
+
+      <div class="paper-item" onclick="togglePaper(this)">
+        <div class="paper-header">
+          <div class="paper-header-left">
+            <span class="paper-num">01</span><span class="paper-title">Science and Complexity</span>
+            <div class="paper-author">Warren Weaver</div>
+          </div>
+          <span class="paper-toggle">+</span>
+        </div>
+        <div class="paper-body">
+          <div class="paper-body-inner">
+            <div class="paper-thoughts"><span class="paper-thoughts-placeholder">A must read paper on Science and Complex systems theory.
+              It describes that there are three kinds of problems in science: problems of simplicity, disorganized complexity, and organized complexity. 
+              The first type involves a few objects interacting via Newtonian laws. 
+              The second is where there are a large number of interacting objects but they are completely disorganized.
+              Therefore even though an individual object is hard to analyze, the collection as a whole becomes amenable to statistics.
+              The third is the domain of complex systems theory where there are a large number of objects but there is also some organization and is still poorly understood. 
+              The paper also gives a nice historical overview of the development of complex systems theory and its relationship to other fields such as physics, biology, and economics.
+            </span></div>
+            <!-- <div class="paper-further">
+              <div class="paper-further-label">Further Reading</div>
+              <div class="paper-further-item">
+                <div class="paper-further-dot"></div>
+                <div class="paper-further-text">
+                  <span class="paper-further-title">Add a related paper title here</span>
+                  <span class="paper-further-author">Author · Year</span>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-item" onclick="togglePaper(this)">
+        <div class="paper-header">
+          <div class="paper-header-left">
+            <span class="paper-num">02</span><span class="paper-title">The Architecture of Complexity</span>
+            <div class="paper-author">Herbert Simon</div>
+          </div>
+          <span class="paper-toggle">+</span>
+        </div>
+        <div class="paper-body">
+          <div class="paper-body-inner">
+            <div class="paper-thoughts"><span class="paper-thoughts-placeholder">This paper introduces complexity as a defining feature of many systems and grapples with the challenges of understanding and modeling them. 
+              It argues that complex systems arise from large numbers of interacting components, giving rise to emergent behaviors that cannot easily be predicted from the parts alone. 
+              The paper also highlights how modularity and hierarchy serve as organizing principles that help tame complexity and make such systems more tractable to study.
+            </span></div>
+            <!-- <div class="paper-further">
+              <div class="paper-further-label">Further Reading</div>
+              <div class="paper-further-item">
+                <div class="paper-further-dot"></div>
+                <div class="paper-further-text">
+                  <span class="paper-further-title">Add a related paper title here</span>
+                  <span class="paper-further-author">Author · Year</span>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-item" onclick="togglePaper(this)">
+        <div class="paper-header">
+          <div class="paper-header-left">
+            <span class="paper-num">03</span><span class="paper-title">Origins of Order: Self-Organization and Selection in Evolution</span>
+            <div class="paper-author">Stuart Kauffman</div>
+          </div>
+          <span class="paper-toggle">+</span>
+        </div>
+        <div class="paper-body">
+          <div class="paper-body-inner">
+            <div class="paper-thoughts"><span class="paper-thoughts-placeholder">This book delves into self-organization and selection in evolution, and in many ways feels like a natural continuation of Kauffman's work on Boolean networks. 
+              It makes the case that the stability of biological systems emerges from the structure of gene interaction networks alone, independent of natural selection. 
+              The book also puts forward the compelling idea that life exists at the edge of order and chaos — stable enough to preserve its structure, yet flexible enough to adapt and evolve.
+            </span></div>
+            <!-- <div class="paper-further">
+              <div class="paper-further-label">Further Reading</div>
+              <div class="paper-further-item">
+                <div class="paper-further-dot"></div>
+                <div class="paper-further-text">
+                  <span class="paper-further-title">Add a related paper title here</span>
+                  <span class="paper-further-author">Author · Year</span>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reading-section">
+      <div class="reading-heading">Boolean Networks</div>
+
+      <div class="paper-item" onclick="togglePaper(this)">
+        <div class="paper-header">
+          <div class="paper-header-left">
+            <span class="paper-num">01</span><span class="paper-title">Metabolic Stability and Epigenesis in Randomly Constructed Genetic Nets</span>
+            <div class="paper-author">Stuart Kauffman</div>
+          </div>
+          <span class="paper-toggle">+</span>
+        </div>
+        <div class="paper-body">
+          <div class="paper-body-inner">
+            <div class="paper-thoughts"><span class="paper-thoughts-placeholder">A must-read paper and the foundational work on Boolean networks in biology. T
+              Kauffman chose this model to explore whether the stability of biological networks arises as an emergent property, or whether it is instead shaped by natural selection.
+            </span></div>
+            <!-- <div class="paper-further">
+              <div class="paper-further-label">Further Reading</div>
+              <div class="paper-further-item">
+                <div class="paper-further-dot"></div>
+                <div class="paper-further-text">
+                  <span class="paper-further-title">Add a related paper title here</span>
+                  <span class="paper-further-author">Author · Year</span>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-item" onclick="togglePaper(this)">
+        <div class="paper-header">
+          <div class="paper-header-left">
+            <span class="paper-num">02</span>
+            <span class="paper-title">The Dynamics of Conjunctive and Disjunctive Boolean Network Models</span>
+            <div class="paper-author">Jarrah et al.</div>
+          </div>
+          <span class="paper-toggle">+</span>
+        </div>
+        <div class="paper-body">
+          <div class="paper-body-inner">
+            <div class="paper-thoughts">
+              <span class="paper-thoughts-placeholder">
+                A beautiful paper showing how the modular structure of a conjunctive network determines its number of steady states.
+                It extends an earlier result giving a complete attractor description for Boolean networks with a single module
+                <sup>[1]</sup>. Interestingly, if NOT gates are introduced, the number of steady states collapses to 1
+                regardless of the module topology or poset structure.
+              </span>
+            </div>
+            <div class="paper-further">
+              <div class="paper-further-label">Further Reading</div>
+              <div class="paper-further-item">
+                <div class="paper-further-dot"></div>
+                <div class="paper-further-text">
+                  <span class="paper-further-title">[1] Boolean Monomial Dynamical Systems</span>
+                  <span class="paper-further-author">Colón-Reyes, Laubenbacher & Pareigis · Annals of Combinatorics, 2004</span>
+                </div>
+              </div>
+              <div class="paper-further-item">
+                <div class="paper-further-dot"></div>
+                <div class="paper-further-text">
+                  <span class="paper-further-title">Modularity of Biological Systems: A Link between Structure and Function</span>
+                  <span class="paper-further-author">Wheeler et al.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="paper-item" onclick="togglePaper(this)">
+        <div class="paper-header">
+          <div class="paper-header-left">
+            <span class="paper-num">03</span><span class="paper-title">Modularity of Biological Systems: A Link between Structure and Function</span>
+            <div class="paper-author">Wheeler et al.</div>
+          </div>
+          <span class="paper-toggle">+</span>
+        </div>
+        <div class="paper-body">
+          <div class="paper-body-inner">
+            <div class="paper-thoughts"><span class="paper-thoughts-placeholder">Your thoughts on this paper…</span></div>
+            <div class="paper-further">
+              <div class="paper-further-label">Further Reading</div>
+              <div class="paper-further-item">
+                <div class="paper-further-dot"></div>
+                <div class="paper-further-text">
+                  <span class="paper-further-title">Add a related paper title here</span>
+                  <span class="paper-further-author">Author · Year</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="reading-section">
+      <div class="reading-heading">Developmental Biology</div>
+
+      <div class="paper-item" onclick="togglePaper(this)">
+        <div class="paper-header">
+          <div class="paper-header-left">
+            <span class="paper-num">01</span><span class="paper-title">The Strategy of the Genes</span>
+            <div class="paper-author">C. H. Waddington</div>
+          </div>
+          <span class="paper-toggle">+</span>
+        </div>
+        <div class="paper-body">
+          <div class="paper-body-inner">
+            <div class="paper-thoughts"><span class="paper-thoughts-placeholder">This is the paper featuring the iconic Waddington landscape. 
+              Waddington uses the epigenetic landscape as a metaphor to explain cellular differentiation and development. 
+              It also introduces the concept of canalization — the idea that development is robust to perturbations, with the system organized to buffer against disruptions and reliably produce the same outcome. 
+              One thing I particularly appreciate is the care Waddington puts into his terminology. 
+              He coins names like "chreods" for the developmental pathways and "canals" for the valleys, and devotes considerable thought to justifying these choices over alternatives.
+            </span></div>
+            <!-- <div class="paper-further">
+              <div class="paper-further-label">Further Reading</div>
+              <div class="paper-further-item">
+                <div class="paper-further-dot"></div>
+                <div class="paper-further-text">
+                  <span class="paper-further-title">Add a related paper title here</span>
+                  <span class="paper-further-author">Author · Year</span>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="reading-section">
+      <div class="reading-heading">Modularity &amp; Community Detection</div>
+
+      <div class="paper-item" onclick="togglePaper(this)">
+        <div class="paper-header">
+          <div class="paper-header-left">
+            <span class="paper-num">01</span><span class="paper-title">Modularity and Community Structure in Networks</span>
+            <div class="paper-author">M. E. J. Newman</div>
+          </div>
+          <span class="paper-toggle">+</span>
+        </div>
+        <div class="paper-body">
+          <div class="paper-body-inner">
+            <div class="paper-thoughts"><span class="paper-thoughts-placeholder">Your thoughts on this paper…</span></div>
+            <div class="paper-further">
+              <div class="paper-further-label">Further Reading</div>
+              <div class="paper-further-item">
+                <div class="paper-further-dot"></div>
+                <div class="paper-further-text">
+                  <span class="paper-further-title">Add a related paper title here</span>
+                  <span class="paper-further-author">Author · Year</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+  </section>
+
+  <!-- CV -->
+  <section id="cv" style="background:var(--cream);">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Curri<em>culum Vitae</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="cv-grid">
+      <div>
+        <div class="cv-label">Education</div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Ph.D. in Mathematics</div>
+          <div class="cv-entry-sub">University of Illinois Urbana-Champaign (UIUC) · May 2024 · GPA 3.92/4.0</div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">M.S. in Mathematics</div>
+          <div class="cv-entry-sub">Indian Institute of Technology Bombay (IITB) · Aug 2017 · GPA 9.59/10.0</div>
+        </div>
+
+        <div class="cv-label">Positions</div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Postdoctoral Associate — UCLA</div>
+          <div class="cv-entry-sub">Department of Integrative Biology &amp; Physiology · Aug 2025 – Present</div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Postdoctoral Associate — University of Florida</div>
+          <div class="cv-entry-sub">June 2024 – July 2025</div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Research Affiliate — Lawrence Berkeley National Lab</div>
+          <div class="cv-entry-sub">Summer 2022 · Topological Data Analysis &amp; Generative Neural Networks</div>
+        </div>
+
+        <div class="cv-label">Research Visits</div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Spectral Methods in Algebra, Geometry &amp; Topology</div>
+          <div class="cv-entry-sub">Hausdorff Research Institute for Mathematics, Bonn · Fall 2022</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="cv-label">Selected Awards</div>
+        <div class="award-item">Susan C. Morisato Scholarship — Leadership in undergraduate projects, Illinois Geometry Lab</div>
+        <div class="award-item">Wolfgang Haken Prize — Outstanding thesis in Geometry and Topology</div>
+        <div class="award-item">Collaboratory Fellow Award — Postdoctoral research in computational biology &amp; bioinformatics</div>
+        <div class="award-item">Landahl Travel Grant — Society for Mathematical Biology annual meeting</div>
+        <div class="award-item">NITMB Travel Grant — MathBio Convergence &amp; Modularity in Biological Systems workshops</div>
+
+        <div class="cv-label">Invited Talks</div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Network reorganization during ASM cycling</div>
+          <div class="cv-entry-sub">EBD Data Blitz, UCLA · Feb 2026</div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Balancing Stability and Complexity in Boolean Models of Biological Systems</div>
+          <div class="cv-entry-sub">Cal Poly Colloquium, San Luis Obispo · Oct 2025</div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Balancing Stability and Complexity in Boolean Models</div>
+          <div class="cv-entry-sub">Microscopy &amp; Modeling Seminar, UCLA · Oct 2025</div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Upper bound for robustness of a Boolean Network</div>
+          <div class="cv-entry-sub">Department Seminar, University of Florida · April 2025</div>
+        </div>
+
+        <div class="cv-label">Service</div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Co-organizer, FLAME (Future Leaders Advancing in Math &amp; Medicine)</div>
+          <div class="cv-entry-sub">April 2025</div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Member, Graduate Affairs Committee</div>
+          <div class="cv-entry-sub">UIUC · Fall 2022</div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Co-organizer, Math Dept TA Training</div>
+          <div class="cv-entry-sub">UIUC · Fall 2022</div>
+        </div>
+
+        <div style="margin-top:2.5rem;">
+          <a href="cv.pdf" style="display:inline-flex;align-items:center;gap:1rem;padding:0.9rem 1.8rem;background:var(--blue);color:white;text-decoration:none;font-family:var(--mono);font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;transition:background 0.2s;" onmouseover="this.style.background='#12202e'" onmouseout="this.style.background='#1e4d8c'">
+            Download Full CV (PDF) &nbsp;↓
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Sai Bavisetty &nbsp;·&nbsp; UCLA Integrative Biology &amp; Physiology</div>
+    <ul class="footer-links">
+      <li><a href="/cdn-cgi/l/email-protection#592f3c3732382d382a383037382b3820383738193e34383035773a3634">Email</a></li>
+      <li><a href="https://scholar.google.com/citations?user=4YsG_vYAAAAJ&hl=en"       <li><a href="https://scholar.google.com/citations?user=4YsG_vYAAAAJ&hl=en" target="_blank">Scholar</a></li>
+      <li><a href="https://github.com/Sai271828" target="_blank">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/sai-bavisetty" target="_blank">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    function togglePaper(item) {
+      item.classList.toggle('open');
+    }
+    function toggleCard(card) {
+      // Stop link clicks inside expanded body from triggering toggle
+      card.classList.toggle('open');
+    }
+    // Prevent clicks on links inside cards from toggling the card
+    document.querySelectorAll('.project-card-inner a, .ug-card-inner a').forEach(function(link) {
+      link.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
+    function switchTalksTab(tab) {
+      document.getElementById('talks-recent').style.display = tab === 'recent' ? '' : 'none';
+      document.getElementById('talks-past').style.display  = tab === 'past'   ? '' : 'none';
+      document.querySelectorAll('.talks-tab').forEach(function(btn, i) {
+        btn.classList.toggle('active', (i === 0 && tab === 'recent') || (i === 1 && tab === 'past'));
+      });
+    }
+    function switchMenteesTab(tab) {
+      document.getElementById('mentees-current').style.display = tab === 'current' ? '' : 'none';
+      document.getElementById('mentees-past').style.display    = tab === 'past'    ? '' : 'none';
+      var tabs = document.querySelectorAll('#mentoring .talks-tab');
+      tabs[0].classList.toggle('active', tab === 'current');
+      tabs[1].classList.toggle('active', tab === 'past');
+    }
+  </script>
+
 </body>
 </html>
